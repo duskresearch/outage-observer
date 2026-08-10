@@ -84,8 +84,8 @@ list lives in `src/catalog.ts`.
 
 Source-available under the **PolyForm Noncommercial License 1.0.0**: free to
 use, modify, and share for **noncommercial** purposes; all commercial rights are
-reserved by Ekpani. See [`LICENSE.md`](LICENSE.md). "Outage Observer", "Ekpani",
+reserved by Aspatial. See [`LICENSE.md`](LICENSE.md). "Outage Observer", "Aspatial",
 and the aperture mark are trademarks and are not licensed. Bundled third-party
 components keep their own licenses; see [`THIRD-PARTY-NOTICES.md`](THIRD-PARTY-NOTICES.md).
 
-<div align="center"><sub><a href="https://ekpani.com">an ekpani tool</a></sub></div>
+<div align="center"><sub><a href="https://aspatial.co">an aspatial tool</a></sub></div>

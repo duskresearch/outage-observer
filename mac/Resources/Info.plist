@@ -33,7 +33,7 @@
   <key>ATSApplicationFontsPath</key>
   <string>.</string>
   <key>NSHumanReadableCopyright</key>
-  <string>An Ekpani tool.</string>
+  <string>An Aspatial tool.</string>
   <!-- Sparkle auto-update -->
   <key>SUFeedURL</key>
   <string>https://outage.observer/appcast.xml</string>

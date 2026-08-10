@@ -109,7 +109,7 @@ ${ld}
 ${opts.body}
 <footer class="sp-foot">
   <a href="/about">about</a> · <a href="/compare">compare</a> · <a href="/mac">mac</a> · <a href="/alerts">alerts</a> · <a href="/privacy">privacy</a> · <a href="/terms">terms</a><br/>
-  <a href="https://ekpani.com" target="_blank" rel="noopener noreferrer">an ekpani tool</a>
+  <a href="https://aspatial.co" target="_blank" rel="noopener noreferrer">an aspatial tool</a>
 </footer>
 </div>
 ${opts.script ? `<script src="${esc(opts.script)}" defer></script>` : ""}
@@ -620,8 +620,8 @@ export async function handleSeo(env: Env, url: URL): Promise<Response | null> {
   return null;
 }
 
-const EKPANI = "https://ekpani.com";
-const REPO = "https://github.com/ekpani/outage-observer";
+const ASPATIAL = "https://aspatial.co";
+const REPO = "https://github.com/AspatialCo/outage-observer";
 const RELEASES = REPO + "/releases";
 // Fixed URL the release workflow keeps pointed at the newest notarized build.
 const MAC_DMG = REPO + "/releases/download/mac-latest/Outage-Observer.dmg";
@@ -656,7 +656,7 @@ function renderAbout(): string {
   </section>
   <section>
     <h2>Who makes it</h2>
-    <p>Outage Observer is built by <a href="${EKPANI}" target="_blank" rel="noopener noreferrer">Ekpani</a>, a small studio. The source is <a href="${REPO}" target="_blank" rel="noopener noreferrer">on GitHub</a>.</p>
+    <p>Outage Observer is built by <a href="${ASPATIAL}" target="_blank" rel="noopener noreferrer">Aspatial</a>, an independent lab. The source is <a href="${REPO}" target="_blank" rel="noopener noreferrer">on GitHub</a>.</p>
   </section>
   <section>
     <h2>More</h2>
@@ -672,7 +672,7 @@ function renderAbout(): string {
 </main>`;
   return shell({
     title: "About · Outage Observer",
-    description: `Outage Observer watches the official status pages of ${CATALOG.length}+ infrastructure and AI providers and alerts you the moment one you depend on changes state. Free, no login. Built by Ekpani.`,
+    description: `Outage Observer watches the official status pages of ${CATALOG.length}+ infrastructure and AI providers and alerts you the moment one you depend on changes state. Free, no login. Built by Aspatial.`,
     canonical: SITE + "/about",
     jsonld: [
       crumbLd([{ name: "Home", path: "/" }, { name: "About", path: "/about" }]),
@@ -681,7 +681,7 @@ function renderAbout(): string {
         "@type": "AboutPage",
         name: "About Outage Observer",
         url: SITE + "/about",
-        publisher: { "@type": "Organization", name: "Ekpani", url: EKPANI },
+        publisher: { "@type": "Organization", name: "Aspatial", url: ASPATIAL },
       },
     ],
     body,
@@ -697,7 +697,7 @@ const FAQS: { q: string; a: string }[] = [
   { q: "How do I get notified?", a: "Pick a channel on the alerts page: browser push, the Telegram bot, a Slack or Discord webhook, or an RSS feed. The Mac app adds a menu-bar indicator and native notifications." },
   { q: "Do you collect my data?", a: "No. There are no accounts and no tracking. Your chosen services are stored on your own device. See the privacy page for details." },
   { q: "Is there a Mac app?", a: "Yes — a native menu-bar app with notifications. See the Mac page to download it." },
-  { q: "How do I add a service that isn't listed?", a: "Email hi@ekpani.com with the provider and its status page URL and we'll look at adding it." },
+  { q: "How do I add a service that isn't listed?", a: "Email hi@aspatial.co with the provider and its status page URL and we'll look at adding it." },
 ];
 
 function renderSupport(): string {
@@ -707,16 +707,16 @@ function renderSupport(): string {
   const body = `<nav class="sp-crumbs" aria-label="Breadcrumb"><a href="/">Home</a> / <span>Support</span></nav>
 <main class="sp-main">
   <h1>Support</h1>
-  <p class="sp-answer">Questions, requests, or a provider we should add? Email <a href="mailto:hi@ekpani.com">hi@ekpani.com</a>.</p>
+  <p class="sp-answer">Questions, requests, or a provider we should add? Email <a href="mailto:hi@aspatial.co">hi@aspatial.co</a>.</p>
   ${faqHtml}
   <section>
     <h2>Still stuck?</h2>
-    <p>Reach us at <a href="mailto:hi@ekpani.com">hi@ekpani.com</a> or open an issue <a href="${REPO}/issues" target="_blank" rel="noopener noreferrer">on GitHub</a>.</p>
+    <p>Reach us at <a href="mailto:hi@aspatial.co">hi@aspatial.co</a> or open an issue <a href="${REPO}/issues" target="_blank" rel="noopener noreferrer">on GitHub</a>.</p>
   </section>
 </main>`;
   return shell({
     title: "Support & FAQ · Outage Observer",
-    description: "Answers to common questions about Outage Observer: pricing, alert speed, supported providers, privacy, the Mac app, and how to request a service. Email hi@ekpani.com.",
+    description: "Answers to common questions about Outage Observer: pricing, alert speed, supported providers, privacy, the Mac app, and how to request a service. Email hi@aspatial.co.",
     canonical: SITE + "/support",
     jsonld: [
       crumbLd([{ name: "Home", path: "/" }, { name: "Support", path: "/support" }]),
@@ -806,7 +806,7 @@ function renderMac(): string {
         offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
         url: SITE + "/mac",
         downloadUrl: MAC_DMG,
-        publisher: { "@type": "Organization", name: "Ekpani", url: EKPANI },
+        publisher: { "@type": "Organization", name: "Aspatial", url: ASPATIAL },
       },
     ],
     body,
@@ -915,7 +915,7 @@ function renderPrivacy(): string {
   </section>
   <section>
     <h2>Contact</h2>
-    <p>Questions: <a href="https://github.com/ekpani/outage-observer" target="_blank" rel="noopener noreferrer">github.com/ekpani/outage-observer</a>.</p>
+    <p>Questions: <a href="https://github.com/AspatialCo/outage-observer" target="_blank" rel="noopener noreferrer">github.com/AspatialCo/outage-observer</a>.</p>
   </section>
 </main>`;
   return shell({
@@ -948,7 +948,7 @@ function renderTerms(): string {
   </section>
   <section>
     <h2>No warranty and limited liability</h2>
-    <p>Alerts may be delayed, missed, duplicated, or incorrect, for example when a provider's own status source is itself late or wrong. Do not rely on Outage Observer as your sole source of truth for an outage. To the fullest extent permitted by law, Ekpani is not liable for any loss or damage arising from use of, or reliance on, the service, including missed or incorrect alerts.</p>
+    <p>Alerts may be delayed, missed, duplicated, or incorrect, for example when a provider's own status source is itself late or wrong. Do not rely on Outage Observer as your sole source of truth for an outage. To the fullest extent permitted by law, Aspatial is not liable for any loss or damage arising from use of, or reliance on, the service, including missed or incorrect alerts.</p>
   </section>
   <section>
     <h2>Acceptable use</h2>
@@ -964,12 +964,12 @@ function renderTerms(): string {
   </section>
   <section>
     <h2>Contact</h2>
-    <p>Outage Observer is built by <a href="${EKPANI}" target="_blank" rel="noopener noreferrer">Ekpani</a>. Questions: <a href="${REPO}" target="_blank" rel="noopener noreferrer">github.com/ekpani/outage-observer</a>. See also our <a href="/privacy">Privacy policy</a>.</p>
+    <p>Outage Observer is built by <a href="${ASPATIAL}" target="_blank" rel="noopener noreferrer">Aspatial</a>. Questions: <a href="${REPO}" target="_blank" rel="noopener noreferrer">github.com/AspatialCo/outage-observer</a>. See also our <a href="/privacy">Privacy policy</a>.</p>
   </section>
 </main>`;
   return shell({
     title: "Terms of Service · Outage Observer",
-    description: "Terms of Service for Outage Observer, a free, best-effort status aggregator and alerting service by Ekpani.",
+    description: "Terms of Service for Outage Observer, a free, best-effort status aggregator and alerting service by Aspatial.",
     canonical: SITE + "/terms",
     jsonld: [
       crumbLd([{ name: "Home", path: "/" }, { name: "Terms", path: "/terms" }]),
@@ -989,7 +989,7 @@ function renderSubprocessors(): string {
   const body = `<nav class="sp-crumbs" aria-label="Breadcrumb"><a href="/">Home</a> / <span>Sub-processors</span></nav>
 <main class="sp-main">
   <h1>Sub-processors</h1>
-  <p class="sp-answer">Outage Observer is operated by Ekpani. We rely on a minimal set of third-party sub-processors to run the service. This page lists them and how we manage them.</p>
+  <p class="sp-answer">Outage Observer is operated by Aspatial. We rely on a minimal set of third-party sub-processors to run the service. This page lists them and how we manage them.</p>
   <p class="sp-meta">Last updated 18 June 2026.</p>
   <section>
     <h2>Our approach</h2>
@@ -1004,7 +1004,7 @@ function renderSubprocessors(): string {
   </section>
   <section>
     <h2>Changes</h2>
-    <p>Where practicable, we post material changes to this list here before they take effect. Questions: <a href="${REPO}" target="_blank" rel="noopener noreferrer">github.com/ekpani/outage-observer</a>. See also our <a href="/privacy">Privacy policy</a> and <a href="/terms">Terms</a>.</p>
+    <p>Where practicable, we post material changes to this list here before they take effect. Questions: <a href="${REPO}" target="_blank" rel="noopener noreferrer">github.com/AspatialCo/outage-observer</a>. See also our <a href="/privacy">Privacy policy</a> and <a href="/terms">Terms</a>.</p>
   </section>
 </main>`;
   return shell({
@@ -1033,7 +1033,7 @@ function renderSecurity(): string {
   <p class="sp-meta">Last updated 18 June 2026. Machine-readable contact: <a href="/.well-known/security.txt">/.well-known/security.txt</a>.</p>
   <section>
     <h2>Reporting a vulnerability</h2>
-    <p>Email <a href="mailto:hi@ekpani.com">hi@ekpani.com</a>, or open a private report via the repository's <a href="${REPO}/security" target="_blank" rel="noopener noreferrer">Security tab</a> ("Report a vulnerability"). Please include steps to reproduce and any relevant logs or proof-of-concept.</p>
+    <p>Email <a href="mailto:hi@aspatial.co">hi@aspatial.co</a>, or open a private report via the repository's <a href="${REPO}/security" target="_blank" rel="noopener noreferrer">Security tab</a> ("Report a vulnerability"). Please include steps to reproduce and any relevant logs or proof-of-concept.</p>
   </section>
   <section>
     <h2>What to expect</h2>
