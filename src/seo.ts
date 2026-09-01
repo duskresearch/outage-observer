@@ -109,7 +109,7 @@ ${ld}
 ${opts.body}
 <footer class="sp-foot">
   <a href="/about">about</a> · <a href="/compare">compare</a> · <a href="/mac">mac</a> · <a href="/alerts">alerts</a> · <a href="/privacy">privacy</a> · <a href="/terms">terms</a><br/>
-  <a href="https://aspatial.co" target="_blank" rel="noopener noreferrer">an aspatial tool</a>
+  <a href="https://duskresearch.com" target="_blank" rel="noopener noreferrer">a Dusk Research tool</a>
 </footer>
 </div>
 ${opts.script ? `<script src="${esc(opts.script)}" defer></script>` : ""}
@@ -620,8 +620,8 @@ export async function handleSeo(env: Env, url: URL): Promise<Response | null> {
   return null;
 }
 
-const ASPATIAL = "https://aspatial.co";
-const REPO = "https://github.com/AspatialCo/outage-observer";
+const DUSK = "https://duskresearch.com";
+const REPO = "https://github.com/duskresearch/outage-observer";
 const RELEASES = REPO + "/releases";
 // Fixed URL the release workflow keeps pointed at the newest notarized build.
 const MAC_DMG = REPO + "/releases/download/mac-latest/Outage-Observer.dmg";
@@ -656,7 +656,7 @@ function renderAbout(): string {
   </section>
   <section>
     <h2>Who makes it</h2>
-    <p>Outage Observer is built by <a href="${ASPATIAL}" target="_blank" rel="noopener noreferrer">Aspatial</a>, an independent lab. The source is <a href="${REPO}" target="_blank" rel="noopener noreferrer">on GitHub</a>.</p>
+    <p>Outage Observer is built by <a href="${DUSK}" target="_blank" rel="noopener noreferrer">Dusk Research</a>. The source is <a href="${REPO}" target="_blank" rel="noopener noreferrer">on GitHub</a>.</p>
   </section>
   <section>
     <h2>More</h2>
@@ -672,7 +672,7 @@ function renderAbout(): string {
 </main>`;
   return shell({
     title: "About · Outage Observer",
-    description: `Outage Observer watches the official status pages of ${CATALOG.length}+ infrastructure and AI providers and alerts you the moment one you depend on changes state. Free, no login. Built by Aspatial.`,
+    description: `Outage Observer watches the official status pages of ${CATALOG.length}+ infrastructure and AI providers and alerts you the moment one you depend on changes state. Free, no login. Built by Dusk Research.`,
     canonical: SITE + "/about",
     jsonld: [
       crumbLd([{ name: "Home", path: "/" }, { name: "About", path: "/about" }]),
@@ -681,7 +681,7 @@ function renderAbout(): string {
         "@type": "AboutPage",
         name: "About Outage Observer",
         url: SITE + "/about",
-        publisher: { "@type": "Organization", name: "Aspatial", url: ASPATIAL },
+        publisher: { "@type": "Organization", name: "Dusk Research", url: DUSK },
       },
     ],
     body,
@@ -806,7 +806,7 @@ function renderMac(): string {
         offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
         url: SITE + "/mac",
         downloadUrl: MAC_DMG,
-        publisher: { "@type": "Organization", name: "Aspatial", url: ASPATIAL },
+        publisher: { "@type": "Organization", name: "Dusk Research", url: DUSK },
       },
     ],
     body,
@@ -915,7 +915,7 @@ function renderPrivacy(): string {
   </section>
   <section>
     <h2>Contact</h2>
-    <p>Questions: <a href="https://github.com/AspatialCo/outage-observer" target="_blank" rel="noopener noreferrer">github.com/AspatialCo/outage-observer</a>.</p>
+    <p>Questions: <a href="https://github.com/duskresearch/outage-observer" target="_blank" rel="noopener noreferrer">github.com/duskresearch/outage-observer</a>.</p>
   </section>
 </main>`;
   return shell({
@@ -948,7 +948,7 @@ function renderTerms(): string {
   </section>
   <section>
     <h2>No warranty and limited liability</h2>
-    <p>Alerts may be delayed, missed, duplicated, or incorrect, for example when a provider's own status source is itself late or wrong. Do not rely on Outage Observer as your sole source of truth for an outage. To the fullest extent permitted by law, Aspatial is not liable for any loss or damage arising from use of, or reliance on, the service, including missed or incorrect alerts.</p>
+    <p>Alerts may be delayed, missed, duplicated, or incorrect, for example when a provider's own status source is itself late or wrong. Do not rely on Outage Observer as your sole source of truth for an outage. To the fullest extent permitted by law, Dusk Research is not liable for any loss or damage arising from use of, or reliance on, the service, including missed or incorrect alerts.</p>
   </section>
   <section>
     <h2>Acceptable use</h2>
@@ -964,12 +964,12 @@ function renderTerms(): string {
   </section>
   <section>
     <h2>Contact</h2>
-    <p>Outage Observer is built by <a href="${ASPATIAL}" target="_blank" rel="noopener noreferrer">Aspatial</a>. Questions: <a href="${REPO}" target="_blank" rel="noopener noreferrer">github.com/AspatialCo/outage-observer</a>. See also our <a href="/privacy">Privacy policy</a>.</p>
+    <p>Outage Observer is built by <a href="${DUSK}" target="_blank" rel="noopener noreferrer">Dusk Research</a>. Questions: <a href="${REPO}" target="_blank" rel="noopener noreferrer">github.com/duskresearch/outage-observer</a>. See also our <a href="/privacy">Privacy policy</a>.</p>
   </section>
 </main>`;
   return shell({
     title: "Terms of Service · Outage Observer",
-    description: "Terms of Service for Outage Observer, a free, best-effort status aggregator and alerting service by Aspatial.",
+    description: "Terms of Service for Outage Observer, a free, best-effort status aggregator and alerting service by Dusk Research.",
     canonical: SITE + "/terms",
     jsonld: [
       crumbLd([{ name: "Home", path: "/" }, { name: "Terms", path: "/terms" }]),
@@ -989,7 +989,7 @@ function renderSubprocessors(): string {
   const body = `<nav class="sp-crumbs" aria-label="Breadcrumb"><a href="/">Home</a> / <span>Sub-processors</span></nav>
 <main class="sp-main">
   <h1>Sub-processors</h1>
-  <p class="sp-answer">Outage Observer is operated by Aspatial. We rely on a minimal set of third-party sub-processors to run the service. This page lists them and how we manage them.</p>
+  <p class="sp-answer">Outage Observer is operated by Dusk Research. We rely on a minimal set of third-party sub-processors to run the service. This page lists them and how we manage them.</p>
   <p class="sp-meta">Last updated 18 June 2026.</p>
   <section>
     <h2>Our approach</h2>
@@ -1004,7 +1004,7 @@ function renderSubprocessors(): string {
   </section>
   <section>
     <h2>Changes</h2>
-    <p>Where practicable, we post material changes to this list here before they take effect. Questions: <a href="${REPO}" target="_blank" rel="noopener noreferrer">github.com/AspatialCo/outage-observer</a>. See also our <a href="/privacy">Privacy policy</a> and <a href="/terms">Terms</a>.</p>
+    <p>Where practicable, we post material changes to this list here before they take effect. Questions: <a href="${REPO}" target="_blank" rel="noopener noreferrer">github.com/duskresearch/outage-observer</a>. See also our <a href="/privacy">Privacy policy</a> and <a href="/terms">Terms</a>.</p>
   </section>
 </main>`;
   return shell({

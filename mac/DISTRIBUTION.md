@@ -44,14 +44,14 @@ signing cert:
 PW="$(openssl rand -base64 24)"
 security export -k ~/Library/Keychains/login.keychain-db -t identities \
   -f pkcs12 -P "$PW" -o /tmp/devid.p12          # approve the keychain prompt
-base64 -i /tmp/devid.p12 | gh secret set DEVID_CERT_P12_BASE64 --repo aspatial/outage-observer
-printf '%s' "$PW" | gh secret set DEVID_CERT_PASSWORD --repo aspatial/outage-observer
+base64 -i /tmp/devid.p12 | gh secret set DEVID_CERT_P12_BASE64 --repo duskresearch/outage-observer
+printf '%s' "$PW" | gh secret set DEVID_CERT_PASSWORD --repo duskresearch/outage-observer
 rm -f /tmp/devid.p12                            # never commit / never print the .p12
 
 # ASC API key (reuse the same key + .p8 you use elsewhere):
-gh secret set ASC_KEY_ID      --repo aspatial/outage-observer --body "YOUR_KEY_ID"
-gh secret set ASC_ISSUER_ID   --repo aspatial/outage-observer --body "YOUR_ISSUER_ID"
-base64 -i ~/keys/AuthKey_YOURKEY.p8 | gh secret set ASC_KEY_P8_BASE64 --repo aspatial/outage-observer
+gh secret set ASC_KEY_ID      --repo duskresearch/outage-observer --body "YOUR_KEY_ID"
+gh secret set ASC_ISSUER_ID   --repo duskresearch/outage-observer --body "YOUR_ISSUER_ID"
+base64 -i ~/keys/AuthKey_YOURKEY.p8 | gh secret set ASC_KEY_P8_BASE64 --repo duskresearch/outage-observer
 ```
 
 ## Versions

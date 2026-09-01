@@ -119,7 +119,7 @@ export default {
       return new Response(null, {
         status: 302,
         headers: {
-          location: "https://github.com/AspatialCo/outage-observer/releases/download/mac-latest/appcast.xml",
+          location: "https://github.com/duskresearch/outage-observer/releases/download/mac-latest/appcast.xml",
           "cache-control": "public, max-age=300",
         },
       });

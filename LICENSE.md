@@ -1,14 +1,14 @@
 # Outage Observer
 
-Copyright 2026 Aspatial. All rights reserved except as licensed below.
+Copyright 2026 Dusk Research. All rights reserved except as licensed below.
 
-Licensor: Aspatial (https://aspatial.co)
+Licensor: Dusk Research (https://duskresearch.com)
 Software: Outage Observer (this repository)
 
 Licensed under the PolyForm Noncommercial License 1.0.0. You may use,
 modify, and share this software for noncommercial purposes only. All
 commercial rights are reserved by the licensor. The name "Outage
-Observer", the "Aspatial" name, and the aperture mark are trademarks and
+Observer", the "Dusk Research" name, and the aperture mark are trademarks and
 are not licensed. Third-party components keep their own licenses (see
 THIRD-PARTY-NOTICES.md).
 

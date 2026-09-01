@@ -68,7 +68,7 @@ struct SettingsScreen: View {
                     tapRow("Check for updates…") { UpdaterManager.shared.checkForUpdates() }
                     linkRow("Support & FAQ", "https://outage.observer/support")
                     linkRow("outage.observer", "https://outage.observer")
-                    linkRow("Source on GitHub", "https://github.com/AspatialCo/outage-observer")
+                    linkRow("Source on GitHub", "https://github.com/duskresearch/outage-observer")
                 }
                 .padding(.bottom, 8)
             }
