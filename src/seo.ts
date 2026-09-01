@@ -697,7 +697,7 @@ const FAQS: { q: string; a: string }[] = [
   { q: "How do I get notified?", a: "Pick a channel on the alerts page: browser push, the Telegram bot, a Slack or Discord webhook, or an RSS feed. The Mac app adds a menu-bar indicator and native notifications." },
   { q: "Do you collect my data?", a: "No. There are no accounts and no tracking. Your chosen services are stored on your own device. See the privacy page for details." },
   { q: "Is there a Mac app?", a: "Yes — a native menu-bar app with notifications. See the Mac page to download it." },
-  { q: "How do I add a service that isn't listed?", a: "Email hi@aspatial.co with the provider and its status page URL and we'll look at adding it." },
+  { q: "How do I add a service that isn't listed?", a: "Email hi@duskresearch.com with the provider and its status page URL and we'll look at adding it." },
 ];
 
 function renderSupport(): string {
@@ -707,16 +707,16 @@ function renderSupport(): string {
   const body = `<nav class="sp-crumbs" aria-label="Breadcrumb"><a href="/">Home</a> / <span>Support</span></nav>
 <main class="sp-main">
   <h1>Support</h1>
-  <p class="sp-answer">Questions, requests, or a provider we should add? Email <a href="mailto:hi@aspatial.co">hi@aspatial.co</a>.</p>
+  <p class="sp-answer">Questions, requests, or a provider we should add? Email <a href="mailto:hi@duskresearch.com">hi@duskresearch.com</a>.</p>
   ${faqHtml}
   <section>
     <h2>Still stuck?</h2>
-    <p>Reach us at <a href="mailto:hi@aspatial.co">hi@aspatial.co</a> or open an issue <a href="${REPO}/issues" target="_blank" rel="noopener noreferrer">on GitHub</a>.</p>
+    <p>Reach us at <a href="mailto:hi@duskresearch.com">hi@duskresearch.com</a> or open an issue <a href="${REPO}/issues" target="_blank" rel="noopener noreferrer">on GitHub</a>.</p>
   </section>
 </main>`;
   return shell({
     title: "Support & FAQ · Outage Observer",
-    description: "Answers to common questions about Outage Observer: pricing, alert speed, supported providers, privacy, the Mac app, and how to request a service. Email hi@aspatial.co.",
+    description: "Answers to common questions about Outage Observer: pricing, alert speed, supported providers, privacy, the Mac app, and how to request a service. Email hi@duskresearch.com.",
     canonical: SITE + "/support",
     jsonld: [
       crumbLd([{ name: "Home", path: "/" }, { name: "Support", path: "/support" }]),
@@ -1033,7 +1033,7 @@ function renderSecurity(): string {
   <p class="sp-meta">Last updated 18 June 2026. Machine-readable contact: <a href="/.well-known/security.txt">/.well-known/security.txt</a>.</p>
   <section>
     <h2>Reporting a vulnerability</h2>
-    <p>Email <a href="mailto:hi@aspatial.co">hi@aspatial.co</a>, or open a private report via the repository's <a href="${REPO}/security" target="_blank" rel="noopener noreferrer">Security tab</a> ("Report a vulnerability"). Please include steps to reproduce and any relevant logs or proof-of-concept.</p>
+    <p>Email <a href="mailto:hi@duskresearch.com">hi@duskresearch.com</a>, or open a private report via the repository's <a href="${REPO}/security" target="_blank" rel="noopener noreferrer">Security tab</a> ("Report a vulnerability"). Please include steps to reproduce and any relevant logs or proof-of-concept.</p>
   </section>
   <section>
     <h2>What to expect</h2>

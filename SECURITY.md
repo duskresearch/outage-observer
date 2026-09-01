@@ -5,7 +5,7 @@ of potential vulnerabilities.
 
 ## Reporting a vulnerability
 
-Email **hi@aspatial.co**, or open a private report via this repository's
+Email **hi@duskresearch.com**, or open a private report via this repository's
 **Security** tab ("Report a vulnerability"). Please include steps to reproduce
 and any relevant logs or proof-of-concept.
 

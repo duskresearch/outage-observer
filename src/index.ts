@@ -128,7 +128,7 @@ export default {
     // Published security contact + disclosure policy (RFC 9116).
     if (request.method === "GET" && (url.pathname === "/.well-known/security.txt" || url.pathname === "/security.txt")) {
       const txt = [
-        "Contact: mailto:hi@aspatial.co",
+        "Contact: mailto:hi@duskresearch.com",
         "Policy: https://outage.observer/security",
         "Expires: 2027-06-18T00:00:00.000Z",
         "Preferred-Languages: en",
