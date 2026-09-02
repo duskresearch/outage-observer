@@ -103,6 +103,7 @@ const PUSH_TOKEN_KEY = "oo-push-token";
 const NOTIFY_DISMISS_KEY = "oo-notify-dismissed";
 
 let BOARD = null;
+let API_DOWN = false;   // last /api/status fetch failed; distinguishes an outage of ours from a cold start
 let VIEW = null;   // 'board' | 'browse'; null = decide from stack on first render
 let SUGGESTIONS = [];   // most-requested services (crowd-sourced)
 let REQ_DRAFT = "";     // preserve the request input across re-renders
@@ -312,11 +313,18 @@ async function submitSuggestion() {
   } catch (e) { if (state) state.textContent = "Network error — try again."; }
 }
 
-function noData() {
+function noData(apiDown) {
+  // Two different truths: a fresh install that has not polled yet, and our own
+  // status API being unreachable. A status page must never dress the second up
+  // as the first.
+  const title = apiDown ? "Can't reach the status API" : "No data yet";
+  const line = apiDown
+    ? "Showing nothing rather than guessing. The board retries every minute."
+    : 'The first check runs within ~60 seconds; services read as <span class="mono">unknown</span> until then.';
   return '<div class="empty">'
     + `<svg class="glyph-lg" viewBox="0 0 16 16" width="32" height="32" aria-hidden="true">${GLYPHS.unknown}</svg>`
-    + '<div class="e-title">No data yet</div>'
-    + '<div class="e-line">The first check runs within ~60 seconds; services read as <span class="mono">unknown</span> until then.</div>'
+    + '<div class="e-title">' + title + '</div>'
+    + '<div class="e-line">' + line + '</div>'
     + '</div>';
 }
 
@@ -351,7 +359,7 @@ function render() {
   updEl.textContent = checked ? (stale ? "⚠ stale · " : "checked ") + hhmm(checked) + " UTC" : "";
   updEl.classList.toggle("stale", stale);
 
-  if (!providers.length) { body.innerHTML = noData(); return; }
+  if (!providers.length) { body.innerHTML = noData(API_DOWN); return; }
 
   const stack = getStack();
   const rssHref = stack.size ? "/feed.xml?ids=" + [...stack].join(",") : "/feed.xml";
@@ -706,8 +714,13 @@ async function load() {
     // which would otherwise make every refresh (and the 60s auto-refresh) re-read
     // a stale cached copy instead of the edge. Always go to the network.
     const res = await fetch("/api/status", { headers: { accept: "application/json" }, cache: "no-store" });
+    if (!res.ok) throw new Error("status " + res.status);
     BOARD = await res.json();
+    API_DOWN = false;
   } catch {
+    // Keep whatever we already have (render marks it stale); only fabricate an
+    // empty board so render() can show an honest "can't reach the API" state.
+    API_DOWN = true;
     if (!BOARD) BOARD = { updatedAt: null, providers: [] };
   }
   render();
